@@ -1,11 +1,18 @@
 package com.workflowhub.model;
 
-public class Task {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
+public class Task {
     private Long id;
+    @NotBlank
+    @Size(min = 3, max = 100)
     private String title;
+    @NotBlank
     private String description;
+    @NotBlank
     private String status;
+    @NotBlank
     private String priority;
 
     public Task(Long id, String title, String description, String status, String priority) {

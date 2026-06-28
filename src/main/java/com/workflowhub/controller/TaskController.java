@@ -2,6 +2,7 @@ package com.workflowhub.controller;
 
 import com.workflowhub.model.Task;
 import com.workflowhub.service.TaskService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class TaskController {
     }
 
     @PostMapping("/tasks")
-    public Task createTask(@RequestBody Task task) {
+    public Task createTask(@Valid   @RequestBody Task task) {
         return taskService.createTask(task);
     }
 

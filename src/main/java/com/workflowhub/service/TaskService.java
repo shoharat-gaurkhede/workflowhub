@@ -1,6 +1,7 @@
 package com.workflowhub.service;
 
 import com.workflowhub.controller.TaskController;
+import com.workflowhub.exception.TaskNotFoundException;
 import com.workflowhub.model.Task;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +35,7 @@ public class TaskService {
                 return t;
             }
         }
-        throw new RuntimeException("Task not found");
+        throw new TaskNotFoundException(id);
     }
 
     public void deleteTask(Long id) {
@@ -46,6 +47,6 @@ public class TaskService {
                 return;
             }
         }
-        throw new RuntimeException("Invalid Task");
+        throw new TaskNotFoundException(id);
     }
 }
